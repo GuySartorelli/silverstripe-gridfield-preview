@@ -16,4 +16,14 @@
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.5"
     },
+    "extra": {
+        "expose": [
+            "client/dist"
+        ]
+    },
+    "autoload": {
+        "psr-4": {
+            "GuySartorelli\\GridFieldPreview\\": "src/"
+        }
+    }
 }

@@ -1,0 +1,16 @@
+{
+  "name": "silverstripe-gridfield-preview",
+  "main": "webpack.mix.js",
+  "scripts": {
+    "build": "mix --production",
+    "dev": "mix",
+    "watch": "mix watch",
+    "lint": "eslint client/src --fix"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0 || ^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "laravel-mix": "^6.0.49"
+  }
+}
