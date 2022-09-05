@@ -8,7 +8,15 @@ A stand-alone `GridField` component that enables previewing records directly fro
 composer require guysartorelli/silverstripe-gridfield-preview
 ```
 
-## Usage
+## CMS User Usage
+
+![example of usage](docs/en/images/preview-example.png)
+
+Click the preview button in the gridfield. This will automatically open the preview panel (in split mode if your screen is wide enough, or in preview mode otherwise) with the preview set to the record you clicked.
+
+![preview button](docs/en/images/preview-button.png)
+
+## Developer Usage
 
 So far this has only been tested in a `ModelAdmin` which manages a `CMSPreviewable` model. This is not guaranteed to work in a `GridField` sitting inside the edit form of another `CMSPreviewable` record - though if you do try that, let me know how it goes.
 
