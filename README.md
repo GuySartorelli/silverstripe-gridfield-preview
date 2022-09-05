@@ -2,6 +2,12 @@
 
 A stand-alone `GridField` component that enables previewing records directly from a GridField.
 
+## Install
+
+```
+composer require guysartorelli/silverstripe-gridfield-preview
+```
+
 ## Usage
 
 So far this has only been tested in a `ModelAdmin` which manages a `CMSPreviewable` model. This is not guaranteed to work in a `GridField` sitting inside the edit form of another `CMSPreviewable` record - though if you do try that, let me know how it goes.
