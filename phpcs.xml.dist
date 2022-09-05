@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<ruleset>
+    <file>src</file>
+
+    <!-- Don't sniff third party libraries -->
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+
+    <!-- Show progress and output sniff names on violation, and add colours -->
+    <arg value="sp"/>
+    <arg name="colors"/>
+
+    <!-- Use PSR-2 as a base standard -->
+    <rule ref="PSR12"/>
+</ruleset>
