@@ -1,8 +1,31 @@
+/*
+ * NOTE: This is unlikely to work as-is in a GridField inside
+ * some other CMSPreviewable object's edit form. You'd want to
+ * add in a way to get back to the original preview state.
+ *
+ * TODO:
+ * Add a SilverStripeNagivatorItem subclass instead of hacking
+ * our state in.
+ * It will need to validate against the _parent_ of the CMSPreviewable
+ * which is unlike all the other navigator items, so for now this is
+ * easier.
+ */
 (function bootGridfieldPreview($) {
+  const GRIDFIELD_STATE_PREVIEW_NAME = 'gridfield-preview';
   // eslint-disable-next-line no-shadow
   $.entwine('ss.preview', ($) => {
     $('.cms-preview').entwine({
       CurrentURL: null,
+
+      /**
+       * Override to declare our custom state as being allowed.
+       */
+      getAllowedStates() {
+        // eslint-disable-next-line no-underscore-dangle
+        let states = this._super();
+        states.push(GRIDFIELD_STATE_PREVIEW_NAME);
+        return states;
+      },
 
       /**
        * Override to ensure there is always a valid state available
@@ -12,26 +35,15 @@
        * Also forces our preview URL into the state - without this it
        * would try to use the state's preview URL which in this case
        * would be undefined.
-       *
-       * NOTE: This is unlikely to work as-is in a GridField inside
-       * some other CMSPreviewable object's edit form. You'd want to
-       * add in a way to get back to the original preview state.
        */
       // eslint-disable-next-line no-underscore-dangle
       _getNavigatorStates() {
         // eslint-disable-next-line no-underscore-dangle
         let states = this._super();
-        if (!states.length) {
-          states = [{
-            name: 'Unversioned',
-            url: this.CurrentURL,
-            active: true,
-          }];
-        }
-        const preview = this;
-        $.map(states, (state) => {
-          state.url = preview.getCurrentURL();
-          return state;
+        states.push({
+          name: GRIDFIELD_STATE_PREVIEW_NAME,
+          url: this.getCurrentURL(),
+          active: true,
         });
         return states;
       },
@@ -41,7 +53,7 @@
        */
       previewSomeURL(url) {
         this.setCurrentURL(url);
-        this.setCurrentStateName('Unversioned');
+        this.setCurrentStateName(GRIDFIELD_STATE_PREVIEW_NAME);
         this.enablePreview();
         // eslint-disable-next-line no-underscore-dangle
         this._loadUrl(url);
