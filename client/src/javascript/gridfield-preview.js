@@ -17,13 +17,19 @@
     $('.cms-preview').entwine({
       CurrentURL: null,
 
+      hasGridFieldPreviewButton() {
+        return $('button.gridfield-preview-btn').length > 0;
+      },
+
       /**
        * Override to declare our custom state as being allowed.
        */
       getAllowedStates() {
         // eslint-disable-next-line no-underscore-dangle
-        let states = this._super();
-        states.push(GRIDFIELD_STATE_PREVIEW_NAME);
+        const states = this._super();
+        if (this.hasGridFieldPreviewButton()) {
+          states.push(GRIDFIELD_STATE_PREVIEW_NAME);
+        }
         return states;
       },
 
@@ -39,12 +45,14 @@
       // eslint-disable-next-line no-underscore-dangle
       _getNavigatorStates() {
         // eslint-disable-next-line no-underscore-dangle
-        let states = this._super();
-        states.push({
-          name: GRIDFIELD_STATE_PREVIEW_NAME,
-          url: this.getCurrentURL(),
-          active: true,
-        });
+        const states = this._super();
+        if (this.hasGridFieldPreviewButton()) {
+          states.push({
+            name: GRIDFIELD_STATE_PREVIEW_NAME,
+            url: this.getCurrentURL(),
+            active: true,
+          });
+        }
         return states;
       },
 
