@@ -57,7 +57,7 @@
         this.enablePreview();
         // eslint-disable-next-line no-underscore-dangle
         this._loadUrl(url);
-        if (!this.is(':visible')) {
+        if ($('.preview-mode-selector select').val() === 'content') {
           this.changeMode('split', false);
         }
         if (!this.is(':visible')) {
