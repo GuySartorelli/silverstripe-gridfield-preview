@@ -2,6 +2,7 @@
 (function bootGridfieldPreview($) {
   const GRIDFIELD_STATE_PREVIEW_NAME = 'Gridfield';
   const CMS_PREVIEW_SELECTOR = '.cms-preview';
+  const GRIDFIELD_STATE_SELECTOR = `.cms-preview-states .state-name[data-name="${GRIDFIELD_STATE_PREVIEW_NAME}"]`;
 
   // eslint-disable-next-line no-shadow
   $.entwine('ss.preview', ($) => {
@@ -9,7 +10,12 @@
      * Add in methods and functionality to handle our custom gridfield preview state
      */
     $(CMS_PREVIEW_SELECTOR).entwine({
-      CurrentURL: null,
+      /**
+       * Add a helper to allow us to get the gridfield state button.
+       */
+      getGridfieldStateButton() {
+        return $(GRIDFIELD_STATE_SELECTOR);
+      },
 
       /**
        * Add the custom gridfield state to the list of allowed states
@@ -27,7 +33,7 @@
        */
       previewFromGridfield(url) {
         // Set our state's URL
-        const state = $(`.cms-preview-states .state-name[data-name="${GRIDFIELD_STATE_PREVIEW_NAME}"]`);
+        const state = $(GRIDFIELD_STATE_SELECTOR);
         state.attr('href', url);
 
         // Enable preview and set our custom state

@@ -1,1 +1,1 @@
-(()=>{var e,t;e=jQuery,t='.cms-preview-states .state-name[data-name="'.concat("Gridfield",'"]'),e.entwine("ss.preview",(function(e){e(".cms-preview").entwine({getGridfieldStateButton:function(){return e(t)}}),e(t).entwine({onmatch:function(){this.hide()}})}))})();
+jQuery.entwine("ss.preview",(function(e){e('.cms-preview-states .state-name[data-name="'.concat("Gridfield",'"]')).entwine({onmatch:function(){this.hide()}})}));
