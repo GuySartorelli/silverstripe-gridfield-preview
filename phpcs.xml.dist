@@ -10,5 +10,8 @@
     <arg name="colors"/>
 
     <!-- Use PSR-2 as a base standard -->
-    <rule ref="PSR12"/>
+    <rule ref="PSR12">
+        <!-- Necessary exception because of the way state names are identified for SilverStripeNavigatorItem subclasses -->
+		<exclude name="Squiz.Classes.ValidClassName.NotCamelCaps" />
+    </rule>
 </ruleset>

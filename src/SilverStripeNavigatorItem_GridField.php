@@ -10,7 +10,8 @@ class SilverStripeNavigatorItem_Gridfield extends SilverStripeNavigatorItem
 {
     public function getHTML()
     {
-        // This is only used in the SilverStripeNavigator on the front-end - which we don't want this to display on anyway.
+        // This is only used in the SilverStripeNavigator on the front-end
+        // which we don't want this to display on anyway.
         return '';
     }
 

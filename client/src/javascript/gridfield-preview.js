@@ -58,6 +58,7 @@
         } else {
           this.getGridfieldStateButton().hide();
         }
+        // eslint-disable-next-line no-underscore-dangle
         this._super(stateName, ...args);
       },
     });
