@@ -53,7 +53,12 @@ use SilverStripe\Forms\GridField\GridFieldConfig_RecordViewer;
     {
         $fields = parent::getCMSFields();
 
-        $fields->addFieldToTab('Root.Main', GridField::create('SomethingPreviewable', 'Something Previewable', BaseElement::get(), $config = GridFieldConfig_RecordViewer::create()));
+        $fields->addFieldToTab('Root.Main', GridField::create(
+            'SomethingPreviewable',
+            'Something Previewable',
+            MyPreviewableDataObject::get(),
+            $config = GridFieldConfig_RecordViewer::create()
+        ));
 
         // Here's the important part - add the GridFieldPreviewButton component!
         $config->addComponent(GridFieldPreviewButton::create());
