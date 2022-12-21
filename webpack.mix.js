@@ -2,3 +2,4 @@
 const mix = require('laravel-mix');
 
 mix.js('client/src/javascript/gridfield-preview.js', 'client/dist');
+mix.js('client/src/javascript/hide-preview-state.js', 'client/dist');

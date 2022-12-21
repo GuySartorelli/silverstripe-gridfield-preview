@@ -1,0 +1,6 @@
+---
+Name: gridfield-preview-config
+---
+SilverStripe\Admin\LeftAndMain:
+  extra_requirements_javascript:
+    - 'guysartorelli/silverstripe-gridfield-preview:client/dist/hide-preview-state.js'

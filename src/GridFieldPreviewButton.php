@@ -45,7 +45,7 @@ class GridFieldPreviewButton extends AbstractGridFieldComponent implements GridF
 
     public function getColumnAttributes($field, $record, $col)
     {
-        return ['class' => 'grid-field__col-compact'];
+        return ['class' => 'action grid-field__col-compact'];
     }
 
     public function getColumnMetadata($gridField, $col)
