@@ -32,7 +32,6 @@ class SilverStripeNavigatorItem_Gridfield extends SilverStripeNavigatorItem
      */
     public function canView($member = null)
     {
-        // TODO this has to be changed to only be viewable after being activated...
         return Controller::curr() instanceof LeftAndMain;
     }
 
