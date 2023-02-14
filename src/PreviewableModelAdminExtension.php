@@ -25,7 +25,7 @@ class PreviewableModelAdminExtension extends Extension
      */
     public function updateEditForm(Form $form): void
     {
-        if (is_a($this->owner->getModelClass(), CMSPreviewable::class, true)) {
+        if ($this->modelClassIsPreviewable()) {
             // Mark as previewable.
             $form->addExtraClass('cms-previewable');
             // Add preview controls.
@@ -51,7 +51,7 @@ class PreviewableModelAdminExtension extends Extension
     private function shouldAllowPreview(): bool
     {
         // Only allow CMSPreviewable models.
-        if (!is_a($this->owner->getModelClass(), CMSPreviewable::class, true)) {
+        if (!$this->modelClassIsPreviewable()) {
             return false;
         }
         // Respect whitelist.
@@ -61,6 +61,13 @@ class PreviewableModelAdminExtension extends Extension
         }
         // If we haven't returned by this point, there is no whitelist so just allow it.
         return true;
+    }
+
+    private function modelClassIsPreviewable()
+    {
+        $ownerModelClass = $this->owner->getModelClass();
+        return is_a($ownerModelClass, CMSPreviewable::class, true)
+            || $ownerModelClass::has_extension(CMSPreviewable::class);
     }
 
     /**

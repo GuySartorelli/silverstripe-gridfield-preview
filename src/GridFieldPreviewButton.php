@@ -33,7 +33,7 @@ class GridFieldPreviewButton extends AbstractGridFieldComponent implements GridF
         if (!$record->canView()) {
             return null;
         }
-        if (!($record instanceof CMSPreviewable)) {
+        if (!($record instanceof CMSPreviewable) && !$record->hasExtension(CMSPreviewable::class)) {
             throw new LogicException(__CLASS__ . ' can only be used with CMSPreviewable records.');
         }
         $data = ArrayData::create([
