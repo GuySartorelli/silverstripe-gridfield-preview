@@ -3,7 +3,7 @@
 namespace GuySartorelli\GridFieldPreview;
 
 use SilverStripe\Admin\LeftAndMain;
-use SilverStripe\CMS\Controllers\SilverStripeNavigatorItem;
+use SilverStripe\Admin\Navigator\SilverStripeNavigatorItem;
 use SilverStripe\Control\Controller;
 
 class SilverStripeNavigatorItem_Gridfield extends SilverStripeNavigatorItem
