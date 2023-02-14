@@ -9,9 +9,9 @@
         "preview"
     ],
     "require": {
-        "php": "^7.4 || ^8.0",
-        "silverstripe/framework": "^4.11",
-        "silverstripe/admin": "^1.11"
+        "php": "^8.1",
+        "silverstripe/framework": "^5",
+        "silverstripe/admin": "^2"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.5"
