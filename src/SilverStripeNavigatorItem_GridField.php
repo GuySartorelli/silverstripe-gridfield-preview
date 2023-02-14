@@ -22,10 +22,7 @@ class SilverStripeNavigatorItem_Gridfield extends SilverStripeNavigatorItem
 
     public function getTitle()
     {
-        return  _t(
-            SilverStripeNavigatorItem_Gridfield::class . '.GRIDFIELD_PREVIEW',
-            'Gridfield preview'
-        );
+        return  _t(self::class . '.GRIDFIELD_PREVIEW', 'Gridfield preview');
     }
 
     /**
