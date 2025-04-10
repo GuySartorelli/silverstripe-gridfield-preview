@@ -5,8 +5,8 @@ namespace GuySartorelli\GridFieldPreview;
 use LogicException;
 use SilverStripe\Forms\GridField\AbstractGridFieldComponent;
 use SilverStripe\Forms\GridField\GridField_ColumnProvider;
+use SilverStripe\Model\ArrayData;
 use SilverStripe\ORM\CMSPreviewable;
-use SilverStripe\View\ArrayData;
 use SilverStripe\View\SSViewer;
 
 /**

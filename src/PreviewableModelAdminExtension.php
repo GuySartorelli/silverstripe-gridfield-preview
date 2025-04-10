@@ -78,7 +78,6 @@ class PreviewableModelAdminExtension extends Extension
         $record = $this->owner->getModelClass()::singleton();
         $navigator = SilverStripeNavigator::create($record);
         $templates = SSViewer::get_templates_by_class($this->owner, '_SilverStripeNavigator', LeftAndMain::class);
-        $renderWith = SSViewer::chooseTemplate($templates);
-        return $navigator->renderWith($renderWith);
+        return $navigator->renderWith($templates);
     }
 }
